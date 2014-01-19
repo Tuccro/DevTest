@@ -3,6 +3,7 @@ package dev.tuccro.DevTest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.Layout;
@@ -25,6 +26,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
 
         scrollView = (ScrollView) findViewById(R.id.scrollView);
+        //scrollView.setBackgroundColor(Color.LTGRAY);
 
         strings = StringHelper.stringArrayMaker();
 

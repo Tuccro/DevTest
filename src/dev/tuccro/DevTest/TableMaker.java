@@ -1,6 +1,7 @@
 package dev.tuccro.DevTest;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -17,8 +18,12 @@ public class TableMaker {
 
     private TableRow[] tableRows;
     private TextView textView;
+    private ImageView imageView;
 
     public TableMaker(ArrayList<String> strings, Context context){
+
+        imageView = new ImageView(context);
+        imageView.setImageResource(R.drawable.image);
 
         tableLayout = new TableLayout(context);
         tableLayout.setLayoutParams(new TableLayout.LayoutParams(
@@ -32,6 +37,8 @@ public class TableMaker {
 
         RowsMaker(strings, context);
 
+        //tableLayout.addView(imageView);
+
         for (int k=0; k<arraySize; k++){
 
             tableLayout.addView(tableRows[k]);
@@ -41,12 +48,11 @@ public class TableMaker {
 
     private void RowsMaker(ArrayList<String> strings, Context context){
 
-        ImageView imageView = new ImageView(context);
-        imageView.setImageResource(R.drawable.image);
+
 
         for (int k=0; k<arraySize; k++){
             tableRows[k] = new TableRow(context);
-            tableRows[k].addView(imageView);
+            //tableRows[k].addView(imageView);
             tableRows[k].addView(textViewMaker(Integer.toString(k+1), context));
             tableRows[k].addView(textViewMaker(strings.get(k), context));
 
@@ -56,6 +62,7 @@ public class TableMaker {
     private TextView textViewMaker(String string, Context context){
         textView = new TextView(context);
         textView.setText(string);
+        //textView.setTextColor(Color.RED);
         return textView;
     }
 
